@@ -5,7 +5,9 @@ public class Main {
         Produkt laptop = new Produkt(1, "Laptop Lenovo", "Laptop", 5000, 10);
         Klient Hubert = new Klient(1, "Hubert", "Bogucki", "s33757@pjwstk.edu.pl", true);
 
+        //Sprawdzenie
         laptop.wyswietlInformacje();
+        System.out.println();
         Hubert.wyswietlKlient();
     }
 }

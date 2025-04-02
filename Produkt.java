@@ -55,7 +55,10 @@ public class Produkt {
 
 
     public void wyswietlInformacje() {
-        System.out.println("ID Produktu: " + idProduktu + " | Produkt: " + nazwaProduktu + " | Kategoria: " + kategoriaProduktu +
-                " | Cena: " + cenaProduktu + " PLN | Ilość: " + iloscWMagazynie);
+        System.out.println("ID Produktu: " + idProduktu);
+        System.out.println("Produkt: " + nazwaProduktu);
+        System.out.println("Kategoria: " + kategoriaProduktu);
+        System.out.println("Cena: " + cenaProduktu);
+        System.out.println("Ilość: " + iloscWMagazynie);
     }
 }
