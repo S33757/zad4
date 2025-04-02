@@ -1,5 +1,9 @@
+import java.util.ArrayList;
+
 public class SklepKomputerowy {
-    public static void main(String[] args) {
-        System.out.println("To bedzie sklep komputerowy");
+    private ArrayList<Produkt> produkty = new ArrayList<>();
+
+    public void dodajProdukt(Produkt produkt) {
+        produkty.add(produkt);
     }
 }
