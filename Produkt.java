@@ -16,7 +16,6 @@ public class Produkt {
     public int getIdProduktu() {
         return idProduktu;
     }
-
     public void setIdProduktu(int idProduktu) {
         this.idProduktu = idProduktu;
     }
@@ -24,7 +23,6 @@ public class Produkt {
     public String getNazwaProduktu() {
         return nazwaProduktu;
     }
-
     public void setNazwaProduktu(String nazwaProduktu) {
         this.nazwaProduktu = nazwaProduktu;
     }
@@ -32,7 +30,6 @@ public class Produkt {
     public String getKategoriaProduktu() {
         return kategoriaProduktu;
     }
-
     public void setKategoriaProduktu(String kategoria) {
         this.kategoriaProduktu = kategoria;
     }
@@ -40,7 +37,6 @@ public class Produkt {
     public double getCenaProduktu() {
         return cenaProduktu;
     }
-
     public void setCenaProduktu(double cena) {
         this.cenaProduktu = cena;
     }
@@ -48,7 +44,6 @@ public class Produkt {
     public double getIloscWMagazynie() {
         return iloscWMagazynie;
     }
-
     public void setIloscWMagazynie(int ilosc) {
         this.iloscWMagazynie = ilosc;
     }

@@ -18,13 +18,4 @@ public class SklepKomputerowy {
         zamowienia.add(zamowienie);
         return zamowienie;
     }
-
-    public void zmienStatusZamowienia(int idZamowienia, String nowyStatus) {
-        for (Zamowienie j : zamowienia) {
-            if (j.getIdZamowienia() == idZamowienia) {
-                j.setStatus(nowyStatus);
-                break;
-            }
-        }
-    }
 }
