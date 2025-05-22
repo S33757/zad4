@@ -1,59 +1,40 @@
 public class Produkt {
-    private int idProduktu;
-    private String nazwaProduktu;
-    private String kategoriaProduktu;
-    private double cenaProduktu;
+    private int id;
+    private String nazwa;
+    private String kategoria;
+    private double cena;
     private int iloscWMagazynie;
 
-    public Produkt(int idProduktu, String nazwaProduktu, String kategoriaProduktu, double cenaProduktu, int iloscWMagazynie) {
-        this.idProduktu = idProduktu;
-        this.nazwaProduktu = nazwaProduktu;
-        this.kategoriaProduktu = kategoriaProduktu;
-        this.cenaProduktu = cenaProduktu;
+    public Produkt() {}
+
+    public Produkt(int id, String nazwa, String kategoria, double cena, int iloscWMagazynie) {
+        this.id = id;
+        this.nazwa = nazwa;
+        this.kategoria = kategoria;
+        this.cena = cena;
         this.iloscWMagazynie = iloscWMagazynie;
     }
 
-    public int getIdProduktu() {
-        return idProduktu;
-    }
-    public void setIdProduktu(int idProduktu) {
-        this.idProduktu = idProduktu;
-    }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
-    public String getNazwaProduktu() {
-        return nazwaProduktu;
-    }
-    public void setNazwaProduktu(String nazwaProduktu) {
-        this.nazwaProduktu = nazwaProduktu;
-    }
+    public String getNazwa() { return nazwa; }
+    public void setNazwa(String nazwa) { this.nazwa = nazwa; }
 
-    public String getKategoriaProduktu() {
-        return kategoriaProduktu;
-    }
-    public void setKategoriaProduktu(String kategoria) {
-        this.kategoriaProduktu = kategoria;
-    }
+    public String getKategoria() { return kategoria; }
+    public void setKategoria(String kategoria) { this.kategoria = kategoria; }
 
-    public double getCenaProduktu() {
-        return cenaProduktu;
-    }
-    public void setCenaProduktu(double cena) {
-        this.cenaProduktu = cena;
-    }
+    public double getCena() { return cena; }
+    public void setCena(double cena) { this.cena = cena; }
 
-    public double getIloscWMagazynie() {
-        return iloscWMagazynie;
-    }
-    public void setIloscWMagazynie(int ilosc) {
-        this.iloscWMagazynie = ilosc;
-    }
-
+    public int getIloscWMagazynie() { return iloscWMagazynie; }
+    public void setIloscWMagazynie(int iloscWMagazynie) { this.iloscWMagazynie = iloscWMagazynie; }
 
     public void wyswietlInformacje() {
-        System.out.println("ID Produktu: " + idProduktu);
-        System.out.println("Produkt: " + nazwaProduktu);
-        System.out.println("Kategoria: " + kategoriaProduktu);
-        System.out.println("Cena: " + cenaProduktu);
-        System.out.println("Ilość: " + iloscWMagazynie);
+        System.out.println("ID Produktu: " + id);
+        System.out.println("Produkt: " + nazwa);
+        System.out.println("Kategoria: " + kategoria);
+        System.out.println("Cena: " + cena);
+        System.out.println("Ilosc: " + iloscWMagazynie);
     }
 }

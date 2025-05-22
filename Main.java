@@ -1,72 +1,67 @@
 public class Main {
     public static void main(String[] args) {
+// Tworzymy instancję sklepu komputerowego
         SklepKomputerowy sklep = new SklepKomputerowy();
-
-        //Produkty-----------------------------------------------------------------------------------------------
-        Produkt laptop = new Produkt(1, "Laptop Lenovo", "Laptop", 5000, 10);
-        sklep.dodajProdukt(laptop);
-        laptop.wyswietlInformacje();
-        System.out.println();
-
-        Produkt mysz = new Produkt(2, "Mysz Logitech", "Mysz", 500, 120);
-        sklep.dodajProdukt(mysz);
-        mysz.wyswietlInformacje();
-        System.out.println();
-
-        Produkt monitor = new Produkt(3, "Monitor Iiyama", "Monitor", 1500, 75);
-        sklep.dodajProdukt(monitor);
-        monitor.wyswietlInformacje();
-        System.out.println();
-
-        //Klienci------------------------------------------------------------------------------------------------------------------
-        Klient Hubert = new Klient(1, "Hubert", "Bogucki", "s33757@pjwstk.edu.pl", true);
-        sklep.dodajKlienta(Hubert);
-        Hubert.wyswietlKlient();
-        System.out.println();
-
-        Klient Adam = new Klient(2, "Adam", "Nowak", "adam.nowak@gmail.com", false);
-        sklep.dodajKlienta(Adam);
-        Adam.wyswietlKlient();
-        System.out.println();
-
-        Klient Klaudia = new Klient(3, "Klaudia", "Kowalska", "klaudia.kowalska@gmail.com", true);
-        sklep.dodajKlienta(Klaudia);
-        Klaudia.wyswietlKlient();
-        System.out.println();
-
-        Klient Rafal = new Klient(4, "Rafal", "Szybki", "rafal.szybki@gmail.com", false);
-        sklep.dodajKlienta(Rafal);
-        Rafal.wyswietlKlient();
-        System.out.println();
-
-        //Zamowienia-------------------------------------------------------------------------------------------------
-        Zamowienie pierwsze = sklep.utworzZamowienie(Hubert, new Produkt[]{laptop}, new int[]{1});
-        System.out.println("PIERWSZE ZAMOWIENIE: ");
-        pierwsze.wyswietlSzczegoly();
-        pierwsze.obliczWartoscZamowienia();
-
-
-        Zamowienie drugie = sklep.utworzZamowienie(Adam, new Produkt[]{mysz, monitor}, new int[]{1, 2});
-        System.out.println("\nDRUGIE ZAMOWIENIE: ");
-        drugie.wyswietlSzczegoly();
-        drugie.obliczWartoscZamowienia();
-
-        Zamowienie trzecie = sklep.utworzZamowienie(Klaudia, new Produkt[]{mysz}, new int[]{10});
-        System.out.println("\nTRZECIE ZAMOWIENIE: ");
-        trzecie.wyswietlSzczegoly();
-        trzecie.obliczWartoscZamowienia();
-
-        Zamowienie czwarte = sklep.utworzZamowienie(Rafal, new Produkt[]{laptop,mysz,monitor}, new int[]{3,3,3});
-        System.out.println("\nCZWARTE ZAMOWIENIE: ");
-        czwarte.wyswietlSzczegoly();
-        czwarte.obliczWartoscZamowienia();
-
-
-        //Sprawdzenie
-        //laptop.wyswietlInformacje();
-        //System.out.println();
-        //Hubert.wyswietlKlient();
-        //System.out.println();
-
+// Dodajemy produkty
+        Produkt produkt1 = new Produkt();
+        produkt1.setId(1);
+        produkt1.setNazwa("Laptop Dell XPS 13");
+        produkt1.setKategoria("Laptop");
+        produkt1.setCena(4999.99);
+        produkt1.setIloscWMagazynie(10);
+        Produkt produkt2 = new Produkt();
+        produkt2.setId(2);
+        produkt2.setNazwa("Mysz Logitech MX Master 3");
+        produkt2.setKategoria("Mysz");
+        produkt2.setCena(349.99);
+        produkt2.setIloscWMagazynie(30);
+        Produkt produkt3 = new Produkt();
+        produkt3.setId(3);
+        produkt3.setNazwa("Monitor Samsung 27\"");
+        produkt3.setKategoria("Monitor");
+        produkt3.setCena(1299.99);
+        produkt3.setIloscWMagazynie(15);
+        sklep.dodajProdukt(produkt1);
+        sklep.dodajProdukt(produkt2);
+        sklep.dodajProdukt(produkt3);
+// Dodajemy klientów
+        Klient klient1 = new Klient();
+        klient1.setId(1);
+        klient1.setImie("Jan");
+        klient1.setNazwisko("Kowalski");
+        klient1.setEmail("jan.kowalski@example.com");
+        klient1.setCzyStaly(true);
+        Klient klient2 = new Klient();
+        klient2.setId(2);
+        klient2.setImie("Anna");
+        klient2.setNazwisko("Nowak");
+        klient2.setEmail("anna.nowak@example.com");
+        klient2.setCzyStaly(false);
+        sklep.dodajKlienta(klient1);
+        sklep.dodajKlienta(klient2);
+// Tworzymy zamówienia
+        Produkt[] produktyZamowienia1 = {produkt1, produkt2};
+        int[] ilosciZamowienia1 = {1, 1};
+        Zamowienie zamowienie1 = sklep.utworzZamowienie(klient1, produktyZamowienia1, ilosciZamowienia1);
+        zamowienie1.zastosujZnizke(); // Zastosuj zniżkę dla stałego klienta
+        sklep.aktualizujStanMagazynowy(zamowienie1);
+// Wyświetlamy informacje
+        System.out.println("Informacje o zamówieniu:");
+        zamowienie1.wyswietlSzczegoly();
+        System.out.println("\nStan magazynowy po zamówieniu:");
+        sklep.wyswietlProduktyWKategorii("Laptop");
+        sklep.wyswietlProduktyWKategorii("Mysz");
+// Zmiana statusu zamówienia
+        sklep.zmienStatusZamowienia(zamowienie1.getId(), "Zrealizowane");
+        System.out.println("\nStatus zamówienia po aktualizacji:");
+        zamowienie1.wyswietlSzczegoly();
+// Dodanie kolejnego zamówienia
+        Produkt[] produktyZamowienia2 = {produkt3, produkt2};
+        int[] ilosciZamowienia2 = {2, 1};
+        Zamowienie zamowienie2 = sklep.utworzZamowienie(klient2, produktyZamowienia2, ilosciZamowienia2);
+        sklep.aktualizujStanMagazynowy(zamowienie2);
+// Wyświetlanie zamówień klienta
+        System.out.println("\nZamówienia klienta Jan Kowalski:");
+        sklep.wyswietlZamowieniaKlienta(1);
     }
 }
